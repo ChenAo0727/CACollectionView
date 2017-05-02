@@ -10,12 +10,12 @@
 #import <UIKit/UIKit.h>
 
 @interface CASpringEngine : NSObject
-//Default is 0.6
+//Default is 20
 @property (nonatomic, assign) CGFloat damping;
-//Default is 2
+//Default is 20
 @property (nonatomic, assign) CGFloat frequency;
 
-@property (nonatomic, weak) UIDynamicAnimator *animator;
+@property (nonatomic, strong) UIDynamicAnimator *animator;
 
 @property (nonatomic, copy) void (^animatorDidPause)();
 
@@ -24,5 +24,4 @@
 - (void)removeOldBehaviorsForAttributes:(NSArray <UICollectionViewLayoutAttributes *>*)attributes;
 - (void)addNewBehaviorsForAttributes:(NSArray <UICollectionViewLayoutAttributes *>*)attributes;
 - (void)updateBehaviorsForBoundsChange:(CGRect)newBounds;
-+ (instancetype)shareSpringEngine;
 @end

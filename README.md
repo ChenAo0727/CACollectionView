@@ -10,3 +10,6 @@ A subclass of UICollectionView from more custom effect
 
 ## Spring
 ![image](./Resources/spring.gif)
+
+## ScaleSpring
+![image](./Resources/scaleSpring.gif)

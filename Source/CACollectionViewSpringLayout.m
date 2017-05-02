@@ -17,8 +17,8 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.damping = 0.6;
-        self.frequency = 2;
+        self.damping = 20;
+        self.frequency = 20;
     }
     return self;
 }

@@ -42,12 +42,6 @@
     }
 }
 
-//- (void)dealloc {
-//    self.hCollectionView = nil;
-//    self.vCollectionView = nil;
-//    self.springCollectionView = nil;
-//}
-
 #pragma mark - getter
 - (CACollectionView *)hCollectionView {
     if (_hCollectionView == nil) {

@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CACollectionViewSpringLayout : UICollectionViewFlowLayout
-//Default is 0.6
+//Default is 20
 @property (nonatomic, assign) CGFloat damping;
-//Default is 2
+//Default is 20
 @property (nonatomic, assign) CGFloat frequency;
 @end

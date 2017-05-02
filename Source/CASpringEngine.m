@@ -25,8 +25,8 @@ static CASpringEngine *_shareInstance;
     CASpringEngine *springEngine = [CASpringEngine shareSpringEngine];
     springEngine.animator = [[UIDynamicAnimator alloc]initWithCollectionViewLayout:layout];
     springEngine.layout = layout;
-    springEngine.damping = 0.6;
-    springEngine.frequency = 2;
+    springEngine.damping = 20;
+    springEngine.frequency = 20;
     springEngine.animator.delegate = springEngine;
     return springEngine;
 }
