@@ -7,13 +7,12 @@
 //
 
 #import "CACollectionViewScaleLayout.h"
-
+#import "CASpringEngine.h"
 @interface CACollectionViewScaleLayout ()
 @property (nonatomic, assign) CGFloat oneDelta;
 @property (nonatomic, assign) CGFloat minScale;
 @property (nonatomic, assign) CGSize smallSize;
 @property (nonatomic, assign) CGSize normalSize;
-
 @end
 
 @implementation CACollectionViewScaleLayout
@@ -23,8 +22,16 @@
         self.oneDelta = 0;
         self.scaleRatio = 0.2;
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        self.spring = NO;
     }
     return self;
+}
+
+- (CASpringEngine *)springEngine {
+    if (_springEngine == nil) {
+        _springEngine = [CASpringEngine springEngineFor:self];
+    }
+    return _springEngine;
 }
 
 /**
@@ -35,6 +42,9 @@
  */
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
+    if (self.spring) {
+        [self.springEngine updateBehaviorsForBoundsChange:newBounds];
+    }
     return YES;
 }
 
@@ -53,6 +63,12 @@
         self.sectionInset = UIEdgeInsetsMake(inset, 0, inset, 0);
 
     }
+    if (self.spring) {
+        NSArray <UICollectionViewLayoutAttributes *>*attributes = [[NSArray alloc]initWithArray:[super layoutAttributesForElementsInRect:self.collectionView.bounds] copyItems:YES];
+        [self.springEngine removeOldBehaviorsForAttributes:attributes];
+        [self.springEngine addNewBehaviorsForAttributes:attributes];
+    }
+    
 }
 
 /**
@@ -67,7 +83,15 @@
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
         // 获得super已经计算好的布局属性
-    NSArray *array = [[NSArray alloc]initWithArray:[super layoutAttributesForElementsInRect:rect] copyItems:YES];
+    NSArray *array;
+    if (self.spring) {
+        
+        array = [self.springEngine.animator itemsInRect:rect];
+    }else {
+    
+        array = [[NSArray alloc]initWithArray:[super layoutAttributesForElementsInRect:rect] copyItems:YES];
+    }
+    
     CGFloat oneDelta = CGFLOAT_MAX;
     CGFloat minScale = 0;
     if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
@@ -125,7 +149,15 @@
 }
 
 - (nullable UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewLayoutAttributes * attributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
+    UICollectionViewLayoutAttributes * attributes;
+    if (self.spring) {
+        attributes = [self.springEngine.animator layoutAttributesForCellAtIndexPath:indexPath];
+        if (!attributes) {
+            attributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
+        }
+    }else {
+        attributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
+    }
     
     if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
         CGFloat centerX = self.collectionView.contentOffset.x + CGRectGetWidth(self.collectionView.frame) * 0.5;

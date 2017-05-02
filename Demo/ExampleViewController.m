@@ -1,39 +1,63 @@
 //
-//  ViewController.m
+//  ExampleViewController.m
 //  CACollectionView
 //
-//  Created by chenao on 17/4/26.
+//  Created by chenao on 17/5/2.
 //  Copyright © 2017年 chenao. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ExampleViewController.h"
 #import "CACollectionViewScaleLayout.h"
+#import "CACollectionViewSpringLayout.h"
 #import "CACollectionView.h"
 #import "CACollectionViewCell.h"
-@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@interface ExampleViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
 @property (nonatomic, strong) CACollectionView *hCollectionView;
 @property (nonatomic, strong) CACollectionView *vCollectionView;
+@property (nonatomic, strong) CACollectionView *springCollectionView;
 
 @end
 
-@implementation ViewController
+@implementation ExampleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [self.view addSubview:self.hCollectionView];
-    [self.view addSubview:self.vCollectionView];
+        // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
+    switch (self.type) {
+        case CollectionViewScaleType:
+            self.title = @"Scale";
+            [self.view addSubview:self.hCollectionView];
+            [self.view addSubview:self.vCollectionView];
+            break;
+        case CollectionViewSpringType:
+            self.title = @"Spring";
+            [self.view addSubview:self.springCollectionView];
+            break;
+        default:
+            break;
+    }
 }
+
+//- (void)dealloc {
+//    self.hCollectionView = nil;
+//    self.vCollectionView = nil;
+//    self.springCollectionView = nil;
+//}
 
 #pragma mark - getter
 - (CACollectionView *)hCollectionView {
     if (_hCollectionView == nil) {
         CACollectionViewScaleLayout *layout = [[CACollectionViewScaleLayout alloc]init];
-            //    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.spring = YES;
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        layout.itemSize = CGSizeMake(width - 160, 160);
+        layout.itemSize = CGSizeMake(0.6 * width, 0.4 *width);
         layout.scaleRatio = 0.6;
-        CACollectionView *collectionView = [[CACollectionView alloc]initWithFrame:CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, 200) collectionViewLayout:layout];
+        CACollectionView *collectionView = [[CACollectionView alloc]initWithFrame:CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, width * 0.5) collectionViewLayout:layout];
         [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CACollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([CACollectionViewCell class])];
         collectionView.delegate = self;
         collectionView.dataSource = self;
@@ -50,9 +74,9 @@
         CACollectionViewScaleLayout *layout = [[CACollectionViewScaleLayout alloc]init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        layout.itemSize = CGSizeMake(width - 180, 120);
+        layout.itemSize = CGSizeMake(width * 0.8,width * 0.3);
         layout.scaleRatio = 0.3;
-        CACollectionView *collectionView = [[CACollectionView alloc]initWithFrame:CGRectMake(0, 300, [UIScreen mainScreen].bounds.size.width, 200) collectionViewLayout:layout];
+        CACollectionView *collectionView = [[CACollectionView alloc]initWithFrame:CGRectMake(0, 100 + width * 0.5, [UIScreen mainScreen].bounds.size.width, width * 0.5) collectionViewLayout:layout];
         [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CACollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([CACollectionViewCell class])];
         collectionView.delegate = self;
         collectionView.dataSource = self;
@@ -60,9 +84,24 @@
         collectionView.multiple = 100;
         collectionView.currentIndex = 0;
         _vCollectionView = collectionView;
-  
+        
     }
     return _vCollectionView;
+}
+
+- (CACollectionView *)springCollectionView {
+    if (_springCollectionView == nil) {
+        CACollectionViewSpringLayout *layout = [CACollectionViewSpringLayout new];
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        layout.itemSize = CGSizeMake(width - 60, 100);
+        layout.minimumLineSpacing = 30;
+        _springCollectionView = [[CACollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:layout];
+        [_springCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CACollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([CACollectionViewCell class])];
+        _springCollectionView.dataCount = 100;
+        _springCollectionView.delegate = self;
+        _springCollectionView.dataSource = self;
+    }
+    return _springCollectionView;
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
@@ -80,6 +119,9 @@
 
 //滚动停止后调整回中间部分
 - (void)scrollViewDidEndDecelerating:(CACollectionView *)scrollView {
+    if (self.type != CollectionViewScaleType) {
+        return;
+    }
     NSArray *cells = [scrollView visibleCells];
     for (CACollectionViewCell *cell in cells) {
         CACollectionViewScaleLayout *layout = (CACollectionViewScaleLayout *)scrollView.collectionViewLayout;
@@ -99,7 +141,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.
 }
 
 

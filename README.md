@@ -7,3 +7,6 @@ A subclass of UICollectionView from more custom effect
 
 ## Vertical scale
 ![image](./Resources/vertical.gif)
+
+## Spring
+![image](./Resources/Spring.gif)

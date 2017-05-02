@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38238D381EB889E700F01DAE /* CASpringEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 38238D371EB889E700F01DAE /* CASpringEngine.m */; };
+		38238D3B1EB889F100F01DAE /* CACollectionViewSpringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 38238D3A1EB889F100F01DAE /* CACollectionViewSpringLayout.m */; };
+		38238D3E1EB88A2600F01DAE /* CACollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38238D3D1EB88A2600F01DAE /* CACollectionTableViewController.m */; };
+		38238D411EB88A2D00F01DAE /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38238D401EB88A2D00F01DAE /* ExampleViewController.m */; };
 		3869C4A31EB079F20061420C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869C4A21EB079F20061420C /* AppDelegate.m */; };
 		3869C4A51EB07A040061420C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869C4A41EB07A040061420C /* main.m */; };
 		3869C4A91EB07A100061420C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3869C4A61EB07A100061420C /* Info.plist */; };
-		3869C4AA1EB07A100061420C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869C4A81EB07A100061420C /* ViewController.m */; };
 		3869C4AF1EB07A1E0061420C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3869C4AB1EB07A1E0061420C /* LaunchScreen.storyboard */; };
 		3869C4B01EB07A1E0061420C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3869C4AD1EB07A1E0061420C /* Main.storyboard */; };
 		3870915E1EB1CEFE00F1A3A1 /* CACollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870915C1EB1CEFE00F1A3A1 /* CACollectionView.m */; };
@@ -20,13 +23,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38238D361EB889E700F01DAE /* CASpringEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CASpringEngine.h; path = Source/CASpringEngine.h; sourceTree = "<group>"; };
+		38238D371EB889E700F01DAE /* CASpringEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CASpringEngine.m; path = Source/CASpringEngine.m; sourceTree = "<group>"; };
+		38238D391EB889F100F01DAE /* CACollectionViewSpringLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACollectionViewSpringLayout.h; path = Source/CACollectionViewSpringLayout.h; sourceTree = "<group>"; };
+		38238D3A1EB889F100F01DAE /* CACollectionViewSpringLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACollectionViewSpringLayout.m; path = Source/CACollectionViewSpringLayout.m; sourceTree = "<group>"; };
+		38238D3C1EB88A2600F01DAE /* CACollectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACollectionTableViewController.h; path = Demo/CACollectionTableViewController.h; sourceTree = SOURCE_ROOT; };
+		38238D3D1EB88A2600F01DAE /* CACollectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACollectionTableViewController.m; path = Demo/CACollectionTableViewController.m; sourceTree = SOURCE_ROOT; };
+		38238D3F1EB88A2D00F01DAE /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleViewController.h; path = Demo/ExampleViewController.h; sourceTree = SOURCE_ROOT; };
+		38238D401EB88A2D00F01DAE /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleViewController.m; path = Demo/ExampleViewController.m; sourceTree = SOURCE_ROOT; };
 		3869C4871EB079A80061420C /* CACollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CACollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3869C4A11EB079F20061420C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Demo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		3869C4A21EB079F20061420C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Demo/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		3869C4A41EB07A040061420C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = SOURCE_ROOT; };
 		3869C4A61EB07A100061420C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Demo/Info.plist; sourceTree = SOURCE_ROOT; };
-		3869C4A71EB07A100061420C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Demo/ViewController.h; sourceTree = SOURCE_ROOT; };
-		3869C4A81EB07A100061420C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Demo/ViewController.m; sourceTree = SOURCE_ROOT; };
 		3869C4AC1EB07A1E0061420C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Demo/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		3869C4AE1EB07A1E0061420C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Demo/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		3870915B1EB1CEFE00F1A3A1 /* CACollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACollectionView.h; path = Source/CACollectionView.h; sourceTree = "<group>"; };
@@ -71,11 +80,13 @@
 			children = (
 				3869C4A11EB079F20061420C /* AppDelegate.h */,
 				3869C4A21EB079F20061420C /* AppDelegate.m */,
-				3869C4A61EB07A100061420C /* Info.plist */,
-				3869C4A71EB07A100061420C /* ViewController.h */,
-				3869C4A81EB07A100061420C /* ViewController.m */,
+				38238D3C1EB88A2600F01DAE /* CACollectionTableViewController.h */,
+				38238D3D1EB88A2600F01DAE /* CACollectionTableViewController.m */,
+				38238D3F1EB88A2D00F01DAE /* ExampleViewController.h */,
+				38238D401EB88A2D00F01DAE /* ExampleViewController.m */,
 				387091661EB1E69800F1A3A1 /* CACollectionViewCell.h */,
 				387091671EB1E69800F1A3A1 /* CACollectionViewCell.m */,
+				3869C4A61EB07A100061420C /* Info.plist */,
 				387091681EB1E69800F1A3A1 /* CACollectionViewCell.xib */,
 				3869C4AB1EB07A1E0061420C /* LaunchScreen.storyboard */,
 				3869C4AD1EB07A1E0061420C /* Main.storyboard */,
@@ -98,6 +109,10 @@
 			children = (
 				3870915B1EB1CEFE00F1A3A1 /* CACollectionView.h */,
 				3870915C1EB1CEFE00F1A3A1 /* CACollectionView.m */,
+				38238D361EB889E700F01DAE /* CASpringEngine.h */,
+				38238D371EB889E700F01DAE /* CASpringEngine.m */,
+				38238D391EB889F100F01DAE /* CACollectionViewSpringLayout.h */,
+				38238D3A1EB889F100F01DAE /* CACollectionViewSpringLayout.m */,
 				387091611EB1CF0A00F1A3A1 /* CACollectionViewScaleLayout.h */,
 				387091621EB1CF0A00F1A3A1 /* CACollectionViewScaleLayout.m */,
 			);
@@ -135,6 +150,8 @@
 				TargetAttributes = {
 					3869C4861EB079A80061420C = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = P3U8RBA76L;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -176,10 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38238D381EB889E700F01DAE /* CASpringEngine.m in Sources */,
+				38238D3E1EB88A2600F01DAE /* CACollectionTableViewController.m in Sources */,
 				3870915E1EB1CEFE00F1A3A1 /* CACollectionView.m in Sources */,
-				3869C4AA1EB07A100061420C /* ViewController.m in Sources */,
+				38238D411EB88A2D00F01DAE /* ExampleViewController.m in Sources */,
 				387091651EB1CF0A00F1A3A1 /* CACollectionViewScaleLayout.m in Sources */,
 				3869C4A51EB07A040061420C /* main.m in Sources */,
+				38238D3B1EB889F100F01DAE /* CACollectionViewSpringLayout.m in Sources */,
 				387091691EB1E69800F1A3A1 /* CACollectionViewCell.m in Sources */,
 				3869C4A31EB079F20061420C /* AppDelegate.m in Sources */,
 			);
@@ -298,24 +318,31 @@
 		3869C49F1EB079A80061420C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = P3U8RBA76L;
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Apple.CACollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CACollectionView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		3869C4A01EB079A80061420C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = P3U8RBA76L;
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Apple.CACollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CACollectionView-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
