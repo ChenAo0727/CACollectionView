@@ -9,4 +9,4 @@ A subclass of UICollectionView from more custom effect
 ![image](./Resources/vertical.gif)
 
 ## Spring
-![image](./Resources/Spring.gif)
+![image](./Resources/spring.gif)
